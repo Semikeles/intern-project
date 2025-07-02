@@ -1,7 +1,6 @@
-
-  {
+{
   "expo": {
-    "name": "Intern Project",
+    "name": "MyFirstApp",
     "slug": "MyFirstApp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,7 +16,6 @@
       "supportsTablet": true
     },
     "android": {
-      "appName": "Intern Project",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"

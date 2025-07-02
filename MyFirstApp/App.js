@@ -1,45 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { View, Button, Text } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import LoginScreen from './src/screens/LoginScreen';
+import HomeScreen from './src/screens/HomeScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [anaRenk, setAnaRenk] = useState('#ffffff');
-  const [guncelKaynak, setGuncelKaynak] = useState('posts');
-
-  useEffect(() => {
-    if (guncelKaynak === 'posts') {
-      setAnaRenk('#FFC0CB');
-    } else if (guncelKaynak === 'photos') {
-      setAnaRenk('#40E0D0');
-    } else if (guncelKaynak === 'users') {
-      setAnaRenk('#FFA500');
-    } else {
-      setAnaRenk('#ffffff');
-    }
-  }, [guncelKaynak]);
-
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: anaRenk,
-        justifyContent: 'center',    // Dikey ortala
-        alignItems: 'center',        // Yatay ortala
-        padding: 20,
-      }}
-    >
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          width: '80%',             // Butonların genişliği için
-          marginBottom: 20,
-        }}
-      >
-        <Button title="Posts" onPress={() => setGuncelKaynak('posts')} />
-        <Button title="Photos" onPress={() => setGuncelKaynak('photos')} />
-        <Button title="Users" onPress={() => setGuncelKaynak('users')} />
-      </View>
-      <Text style={{ fontSize: 24, textAlign: 'center' }}>{guncelKaynak}</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen 
+          name="Login" 
+          component={LoginScreen} 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="Home" 
+          component={HomeScreen} 
+          options={{ headerShown: false }} 
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
