@@ -1,9 +1,6 @@
-// Header.js
-
-import Colors from '../config/Colors';
-
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { colors } from '../config/Color';
 
 export default function Header({ navigation, title = 'Users' }) {
   return (
@@ -20,22 +17,23 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 40, // StatusBar için boşluk
+    paddingTop: 40,
     paddingHorizontal: 16,
-    backgroundColor: '#40E0D0',
+    backgroundColor: colors.primary, // senin primary neon mavi
     height: 80,
   },
   backButton: {
     marginRight: 16,
   },
   backText: {
-    color: 'white',
+    color: colors.textPrimary,
     fontSize: 18,
+    fontFamily: 'Sora_400Regular', // Sora fontu
   },
   title: {
-    color: 'white',
+    color: colors.textPrimary,
     fontSize: 20,
     fontWeight: '700',
+    fontFamily: 'Sora_700Bold', // Sora bold fontu
   },
 });
-
